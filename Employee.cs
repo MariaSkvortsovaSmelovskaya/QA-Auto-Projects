@@ -1,46 +1,65 @@
 ﻿
 
-namespace UniversityEmployee
+using System.Xml.Linq;
+
+namespace LegalStructure;
+
+public class Employee : Person
 {
-    public class Employee
+    private int _taxId;
+    private const int Max_Tax_Rate = 18;
+
+
+    public string UniversityEmployeePosition { get; set; }
+
+    public int TaxId
     {
-        private int _taxId;
-        private const int Max_Tax_Rate = 18;
-        
-        public Person PersonEmployee { get; set; }
-
-        public int TaxId
+        get
         {
-            get
+            return _taxId;
+        }
+        set
+        {
+            if (value > 0 && value < Max_Tax_Rate)
             {
-                return _taxId;
+                _taxId = value;
             }
-            set
-            {
-                if (value > 0 && value < Max_Tax_Rate)
-                {
-                    _taxId = value;
-                }
 
-            }
         }
+    }
 
-        public Employee(Person personEmployee, int taxId)
+
+    public Employee(string firstName, string lastName, int taxId, string universityEmployeePosition) : 
+        base(firstName, lastName)
+    {
+        TaxId = taxId;
+        UniversityEmployeePosition = universityEmployeePosition;
+    }
+
+    public virtual string GetOfficialDuties()
+    {
+        return "Visit daily meetings before starting of working day ";
+    }
+
+    public virtual string GetPositionName()
+    {
+        return "Employee";
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is Employee emp)
         {
-            PersonEmployee = personEmployee;
-            TaxId = taxId;
+            return TaxId == emp.TaxId;
         }
-
-        public virtual string GetOfficialDuties()
+        else
         {
-            return "Visit daily meetings before starting of working day ";
+            return false;
         }
+    }
 
-        public virtual string GetPositionName()
-        {
-            return "Employee";
-        }
-    }   
-
-
+    public override int GetHashCode()
+    { 
+        return TaxId.GetHashCode(); 
+    }
 }

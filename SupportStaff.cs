@@ -1,26 +1,27 @@
 ﻿
-namespace UniversityEmployee
-{
-    internal class SupportStaff: Employee
-    {
-        public string StaffName { get; set; }
-       
-        public string StaffDuties { get; set; }
+using LegalStructure;
 
-        public SupportStaff(Person personEmployee, int taxId, string staffName, string staffDuties): base(personEmployee, taxId)
+namespace LegalStructure
+{
+    public class SupportStaff: Employee
+    {
+
+        public string StaffDuties { get; set; }
+        public SupportStaff(Person personEmployee, int taxId, string universityEmployeePosition, string staffDuties) :
+            base(personEmployee?.FirstName, personEmployee?.LastName, taxId, universityEmployeePosition)
         {
-            StaffName = staffName;
             StaffDuties = staffDuties;
         }
         public override string GetOfficialDuties()
         {
-              return $"{StaffName} {StaffDuties}";
+            return "StaffDuties";
         }
 
         public override string GetPositionName()
         {
             return "SupportStaff";
         }
+
     }
-    
 }
+

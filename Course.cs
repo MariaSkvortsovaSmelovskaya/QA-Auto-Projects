@@ -1,5 +1,5 @@
 ﻿
-namespace UniversityEmployee
+namespace LegalStructure
 {
     public class Course
     {
@@ -13,4 +13,8 @@ namespace UniversityEmployee
             CourseDescription = courseDescription;
         }
     }
+   
 }
+
+    
+
