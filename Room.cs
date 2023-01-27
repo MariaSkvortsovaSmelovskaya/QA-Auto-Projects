@@ -37,10 +37,7 @@ namespace LegalStructure
             {
                 return RoomsName == rms.RoomsName && Placement == rms.Placement;
             }
-            else
-            {
-                return false;
-            }
+            return false;    
         }
 
         public override int GetHashCode()

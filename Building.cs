@@ -39,10 +39,8 @@ public class Building
         {
             return Street == bld.Street && Block == bld.Block;
         }
-        else
-        {
-            return false;
-        }
+        return false;
+        
     }
 
     public override int GetHashCode()

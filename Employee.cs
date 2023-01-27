@@ -7,9 +7,7 @@ namespace LegalStructure;
 public class Employee : Person
 {
     private int _taxId;
-    private const int Max_Tax_Rate = 18;
-
-
+    
     public string UniversityEmployeePosition { get; set; }
 
     public int TaxId
@@ -20,7 +18,7 @@ public class Employee : Person
         }
         set
         {
-            if (value > 0 && value < Max_Tax_Rate)
+            if (value > 0)
             {
                 _taxId = value;
             }
@@ -52,10 +50,8 @@ public class Employee : Person
         {
             return TaxId == emp.TaxId;
         }
-        else
-        {
-            return false;
-        }
+        return false;
+        
     }
 
     public override int GetHashCode()

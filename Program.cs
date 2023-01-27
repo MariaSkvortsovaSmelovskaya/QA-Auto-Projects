@@ -7,8 +7,7 @@ public class Program
     static void Main(string[] args)
     {
         {
-            var employees0 = new
-                Rectorat(new Person("Yan", "Petrov"), 458, "Rector");
+            var employees0 = new Rectorat(new Person("Yan", "Petrov"), 458, "Rector");
 
             var employees1 = new
                 Teacher (new Person ("Gleb", "Glinka"), 123, "Criminal law teacher",
@@ -29,38 +28,33 @@ public class Program
 
 
 
-            Building building1 = new ("Sevastopolskaya", 32);
-            Building building2 = new ("Pushkina", 145);
-            Building building3 = new ("Ivolgina", 44);
-            Building building4 = new ("Kirova", 25);
-
-            Room room1 = new Room("Lecture class", 112);
-            Room room2 = new Room("Laboratoty", 005);
-            Room room3 = new Room("Pantry", 001);
-            Room room4 = new Room("Seminar class", 402);
-            Room room5 = new Room("Seminar class", 312);
-            Room room6 = new Room("Lecture class", 605);
-            Room room7 = new Room("Laboratoty", 333);
-            Room room8 = new Room("Pantry", 102);
-
-            building1.Rooms = new List<Room>();
-            building1.Rooms.Add(room1);
-            building1.Rooms.Add(room2);
+            var building1 = new Building("Sevastopolskaya", 32);
+            var building2 = new Building("Pushkina", 145);
+            var building3 = new Building("Ivolgina", 44);
+            var building4 = new Building("Kirova", 25);
 
 
-            building2.Rooms = new List<Room>();
-            building2.Rooms.Add(room3);
-            building2.Rooms.Add(room4);
+            var room1 = new Room("Lecture class", 112);
+            var room2 = new Room("Laboratoty", 005);
+            var room3 = new Room("Pantry", 001);
+            var room4 = new Room("Seminar class", 402);
+            var room5 = new Room("Seminar class", 312);
+            var room6 = new Room("Lecture class", 605);
+            var room7 = new Room("Laboratoty", 333);
+            var room8 = new Room("Pantry", 102);
 
-            building3.Rooms = new List<Room>();
-            building3.Rooms.Add(room5);
-            building3.Rooms.Add(room6);
 
-            building4.Rooms = new List<Room>();
-            building4.Rooms.Add(room7);
-            building4.Rooms.Add(room8);
+            building1.Rooms = new List<Room>() { room1, room2 };
+           
+            building2.Rooms = new List<Room>() { room3, room4 };
+            
+            building3.Rooms = new List<Room>() { room5, room6 };
+            
+            building4.Rooms = new List<Room>() { room7, room8 };
 
+           
             var employees = new List<Employee>();
+
 
             var universityMinsk = new University(employees, new List<Building> { building1, building2, building3, building4 }, employees0, "220065, Belarus, Minsk, ul.Lenina 6");
             universityMinsk.AddEmployee(employees1);
@@ -68,6 +62,11 @@ public class Program
             universityMinsk.AddEmployee(employees3);
             universityMinsk.AddEmployee(employees4);
             universityMinsk.AddEmployee(employees5);
+
+            foreach (var item in universityMinsk.Employees)
+            {
+                Console.WriteLine(item.FirstName + " " + item.LastName);
+            }
         }
     }
 }

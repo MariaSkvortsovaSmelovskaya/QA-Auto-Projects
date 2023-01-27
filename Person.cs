@@ -18,10 +18,8 @@ public class Person
         {
             return LastName == prsn.LastName;
         }
-        else
-        {
-            return false;
-        }
+        return false;
+        
     }
 
     public override int GetHashCode()
