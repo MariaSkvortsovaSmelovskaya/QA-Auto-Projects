@@ -1,30 +1,33 @@
 ﻿
-namespace LegalStructure;
 
-public class Person
+namespace Sort
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    public Person(string firstName, string lastName)
+    public class Person
     {
-        FirstName = firstName;
-        LastName = lastName;
-    }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-    public override bool Equals(object? obj)
-    {
-        if (obj is Person prsn)
+        public Person(string firstName, string lastName)
         {
-            return LastName == prsn.LastName;
+            FirstName = firstName;
+            LastName = lastName;
         }
-        return false;
-        
-    }
 
-    public override int GetHashCode()
-    { 
-        return LastName.GetHashCode(); 
+        public override bool Equals(object? obj)
+        {
+            if (obj is Person prsn)
+            {
+                return LastName == prsn.LastName;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return LastName.GetHashCode();
+        }
     }
 }
-

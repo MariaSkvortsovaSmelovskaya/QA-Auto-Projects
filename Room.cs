@@ -1,5 +1,6 @@
 ﻿
-namespace LegalStructure
+
+namespace Sort
 {
     public class Room
     {
@@ -8,7 +9,7 @@ namespace LegalStructure
 
         public string RoomsName { get; set; }
 
-        
+
         public int Placement
         {
             get
@@ -25,7 +26,7 @@ namespace LegalStructure
         }
         public Room(string roomsName, int placement)
         {
-          
+
             RoomsName = roomsName;
             Placement = placement;
 
@@ -37,14 +38,18 @@ namespace LegalStructure
             {
                 return RoomsName == rms.RoomsName && Placement == rms.Placement;
             }
-            return false;    
+            else
+            {
+                return false;
+            }
         }
 
         public override int GetHashCode()
         {
             return RoomsName.GetHashCode() + Placement;
         }
-           
+
+       
     }
 }
 

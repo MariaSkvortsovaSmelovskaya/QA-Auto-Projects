@@ -1,54 +1,59 @@
 ﻿
-namespace LegalStructure;
 
-public class Building
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+
+namespace Sort
 {
-
-    private const int Max_Block_Number = 100;
-    private int _block;
-
-
-    public string Street { get; set; }
-    public List<Room> Rooms { get; set; }
-
-    public int Block
+    public class Building
     {
-        get
+
+        private const int Max_Block_Number = 100;
+        private int _block;
+        
+        public string Street { get; set; }
+        public List<Room> Rooms { get; set; }
+        public List<Building> buildings { get; set; }
+        
+        public int Block
         {
-            return _block;
-        }
-        set
-        {
-            if (value > 0 && value < Max_Block_Number)
+            get
             {
-                _block = value;
+                return _block;
+            }
+            set
+            {
+                if (value > 0 && value < Max_Block_Number)
+                {
+                    _block = value;
+                }
             }
         }
-    }
 
-    public Building(string street, int block)
-    {
-        Street = street;
-        Block = block;
-
-    }
-
-    public override bool Equals(object? obj)
-    {
-        if (obj is Building bld)
+        public Building(string street, int block)
         {
-            return Street == bld.Street && Block == bld.Block;
+            Street = street;
+            Block = block;
+
         }
-        return false;
-        
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Building bld)
+            {
+                return Street == bld.Street && Block == bld.Block;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return Street.GetHashCode() + Block.GetHashCode();
+        }
     }
 
-    public override int GetHashCode()
-    { 
-        return Street.GetHashCode() + Block.GetHashCode();
-    }
 }
-
-
-
-

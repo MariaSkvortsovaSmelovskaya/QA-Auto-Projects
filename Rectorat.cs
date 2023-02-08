@@ -1,17 +1,18 @@
 ﻿
 
-namespace LegalStructure;
-
-public class Rectorat: Employee
+namespace Sort
 {
-    public Rectorat(Person personEmployee, int taxId, string universityEmployeePosition) :
-        base(personEmployee?.FirstName, personEmployee?.LastName, taxId, universityEmployeePosition)
+    public class Rectorat : Employee
     {
-        UniversityEmployeePosition = universityEmployeePosition;
-    }
+        public Rectorat(Person personEmployee, int taxId, string universityEmployeePosition) :
+            base(personEmployee?.FirstName, personEmployee?.LastName, taxId, universityEmployeePosition)
+        {
+            UniversityEmployeePosition = universityEmployeePosition;
+        }
 
-    public override string GetOfficialDuties()
-    {
-        return "UniversityEmployeePosition";
+        public override string GetOfficialDuties()
+        {
+            return "Manage the University";
+        }
     }
 }
