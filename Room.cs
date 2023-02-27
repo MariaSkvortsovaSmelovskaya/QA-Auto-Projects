@@ -1,6 +1,5 @@
 ﻿
-
-namespace Sort
+namespace Exeptions
 {
     public class Room
     {
@@ -49,7 +48,8 @@ namespace Sort
             return RoomsName.GetHashCode() + Placement;
         }
 
-       
+
     }
 }
+    
 

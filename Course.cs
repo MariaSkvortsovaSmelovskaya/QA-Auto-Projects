@@ -1,6 +1,5 @@
 ﻿
-
-namespace Sort
+namespace Exeptions
 {
     public class Course
     {
@@ -8,10 +7,12 @@ namespace Sort
         public string CourseDescription { get; set; }
 
         public Course(string courseName, string courseDescription)
-            
+
         {
             CourseName = courseName;
             CourseDescription = courseDescription;
         }
     }
 }
+    
+

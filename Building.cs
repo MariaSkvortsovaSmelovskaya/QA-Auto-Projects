@@ -1,21 +1,15 @@
 ﻿
-
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-
-namespace Sort
+namespace Exeptions
 {
     public class Building
     {
-
         private const int Max_Block_Number = 100;
         private int _block;
-        
+
         public string Street { get; set; }
         public List<Room> Rooms { get; set; }
         public List<Building> buildings { get; set; }
-        
+
         public int Block
         {
             get
@@ -57,3 +51,6 @@ namespace Sort
     }
 
 }
+
+    
+

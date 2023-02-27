@@ -1,10 +1,9 @@
 ﻿
 
-namespace Sort
+namespace Exeptions
 {
     public class University
     {
-
         public List<Building> Buildings { get; set; }
         public Rectorat Rector { get; set; }
         public string LegalAddress { get; set; }
@@ -34,5 +33,8 @@ namespace Sort
 
             Employees.Add(employee);
         }
+
     }
 }
+    
+
