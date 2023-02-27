@@ -1,13 +1,9 @@
 ﻿
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-
-namespace Sort
+namespace Exeptions
 {
-    public class Employee : Person
+    public class Employee : Person, IComparable, IComparable<Employee>
     {
         private int _taxId;
-        private const int Max_Tax_Rate = 1000;
 
         public List<Employee> employees { get; set; }
         public string UniversityEmployeePosition { get; set; }
@@ -20,10 +16,13 @@ namespace Sort
             }
             set
             {
-                if (value > 0 && value < Max_Tax_Rate)
+
+                if (value < 0)
                 {
-                    _taxId = value;
+                    throw new ArgumentException("Unaccepted number");
                 }
+
+                _taxId = value;
 
             }
         }
@@ -34,6 +33,7 @@ namespace Sort
         {
             TaxId = taxId;
             UniversityEmployeePosition = universityEmployeePosition;
+
         }
 
         public virtual string GetOfficialDuties()
@@ -63,9 +63,27 @@ namespace Sort
             return TaxId.GetHashCode();
         }
 
+        public int CompareTo(Employee emp)
+        {
+            if (emp == null)
+            {
+                return 1;
+            }
+
+            else
+            {
+                return -LengthCheck() + emp.LengthCheck();
+            }
+        }
+
+        public int CompareTo(object? obj)
+        {
+            return LengthCheck().CompareTo((obj as Employee)?.LengthCheck());
+        }
+
+
     }
 }
 
-        
+    
 
-  

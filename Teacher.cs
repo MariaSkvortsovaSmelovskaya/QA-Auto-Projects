@@ -1,8 +1,7 @@
 ﻿
-
-namespace Sort
+namespace Exeptions
 {
-    public class Teacher : Employee
+    public class Teacher: Employee
     {
         public Course Course { get; set; }
 
@@ -33,12 +32,8 @@ namespace Sort
             return "Teacher";
         }
 
-        
+
     }
 }
-        
-     
-
-
-
+    
 

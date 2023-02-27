@@ -1,10 +1,8 @@
 ﻿
-
-namespace Sort
+namespace Exeptions
 {
-    public class SupportStaff : Employee
+    public class SupportStaff: Employee
     {
-
         public string StaffDuties { get; set; }
         public SupportStaff(Person personEmployee, int taxId, string universityEmployeePosition, string staffDuties) :
             base(personEmployee?.FirstName, personEmployee?.LastName, taxId, universityEmployeePosition)
@@ -23,3 +21,5 @@ namespace Sort
 
     }
 }
+    
+
